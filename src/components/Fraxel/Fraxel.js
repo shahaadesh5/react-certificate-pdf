@@ -1,5 +1,21 @@
-import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
 
+Font.register({
+    family: 'Allura',
+    src: './fonts/Allura-Regular.ttf'
+})
+Font.register({
+    family: 'Raleway-Light',
+    src: './fonts/Raleway-Light.ttf'
+})
+Font.register({
+    family: 'Raleway-Medium',
+    src: './fonts/Raleway-Medium.ttf'
+})
+Font.register({
+    family: 'Raleway-Thin',
+    src: './fonts/Raleway-Thin.ttf'
+})
 
 const styles = StyleSheet.create({
     page: {
@@ -15,15 +31,16 @@ const styles = StyleSheet.create({
     },
     container: {
         width: "100%",
-        marginTop: "95px",
+        marginTop: "85px",
         color: "#aba9a9",
+        fontFamily: 'Raleway-Light'
     },
     logoWrapper: {
-        width: "150px",
+        width: "120px",
         marginTop: 0,
         marginLeft: "auto",
         marginRight: "auto",
-        marginBottom: "25px"
+        marginBottom: "20px"
     },
     logo: {
         width: "100%"
@@ -39,6 +56,8 @@ const styles = StyleSheet.create({
         color: "#7a1135",
         marginTop: "15px",
         marginBottom: "15px",
+        fontFamily: "Allura",
+        fontSize: 50
     },
     sep2: {
         width: "50%",
@@ -54,15 +73,19 @@ const styles = StyleSheet.create({
     name: {
         textTransform: "uppercase",
         color: "#7a1135",
-        marginBottom: "30px"
+        marginBottom: "25px",
+        fontFamily: 'Raleway-Medium',
+        fontSize: 30
     },
     date: {
-        marginTop: "25px",
-        color: "#999a99"
+        marginTop: "15px",
+        color: "#999a99",
+        // fontFamily: 'Raleway-Thin',
+        fontSize: 25
     }
   });
 
-const Fraxel = ({firstName, lastName}) => {
+const Fraxel = ({firstName, lastName, certiDate}) => {
     return(
             <Document>
             <Page size="A4" style={styles.page} orientation="landscape">
@@ -79,7 +102,7 @@ const Fraxel = ({firstName, lastName}) => {
                         <Text>has attended training on the application of the</Text>
                         <Text>Clear + Brillaint procedure</Text>
                         <Text>as conducted by a representative of Solta Medical on</Text>
-                        <Text style={styles.date}>Month Year</Text>
+                        <Text style={styles.date}>{certiDate}</Text>
                     </View>
             </Page>
             </Document>
