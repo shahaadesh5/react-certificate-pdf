@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import ClearBrilliant from './components/ClearBrilliant/ClearBrilliant';
+import Thermage from './components/Thermage/Thermage';
+import React from 'react';
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import Fraxel from './components/Fraxel/Fraxel';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <PDFDownloadLink document={<ClearBrilliant firstName="Aadesh" lastName="Shah" />} fileName="somename.pdf">Download CB PDF</PDFDownloadLink>
+      <PDFDownloadLink document={<Thermage firstName="Aadesh" lastName="Shah" />} fileName="somename.pdf">Download Thermage PDF</PDFDownloadLink>
+      <PDFDownloadLink document={<Fraxel firstName="Aadesh" lastName="Shah" />} fileName="somename.pdf">Download Fraxel PDF</PDFDownloadLink>
     </div>
   );
 }
